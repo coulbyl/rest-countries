@@ -1,0 +1,54 @@
+<pagination-template
+  #p="paginationApi"
+  [id]="config.id!"
+  (pageChange)="config.currentPage = $event"
+>
+</pagination-template>
+<div class="Container custom-pagination">
+  <button
+    class="
+      Action
+      dark:text-white
+      hover:bg-headerdark
+      dark:hover:bg-bodylight
+      hover:text-white
+      dark:hover:text-gray-800
+      pagination-previous
+    "
+    [disabled]="p.isFirstPage()"
+    (click)="p.previous()"
+  >
+    <i class="las la-angle-left"></i>
+  </button>
+  <span *ngFor="let page of p.pages">
+    <button
+      [class.active]="p.getCurrent() === page.value"
+      class="
+        Action
+        dark:text-white
+        hover:bg-headerdark
+        dark:hover:bg-bodylight
+        hover:text-white
+        dark:hover:text-gray-800
+      "
+      (click)="p.setCurrent(page.value)"
+    >
+      {{ page.label }}
+    </button>
+  </span>
+
+  <button
+    class="
+      Action
+      dark:text-white
+      hover:bg-headerdark
+      dark:hover:bg-bodylight
+      hover:text-white
+      dark:hover:text-gray-800
+    "
+    [disabled]="p.isLastPage()"
+    (click)="p.next()"
+  >
+    <i class="las la-angle-right"></i>
+  </button>
+</div>

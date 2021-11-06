@@ -1,0 +1,35 @@
+<a
+  [routerLink]="['..', country.name.common, 'countries', 'details']"
+  *ngIf="country"
+>
+  <div
+    class="
+      country-card
+      bg-white
+      transform
+      hover:scale-75
+      dark:bg-headerdark dark:text-white
+    "
+  >
+    <div
+      class="w-full bg-cover rounded-t-md"
+      style="height: 137px"
+      [style.background-image]="country.flags.png | bgImageSanitizer"
+    ></div>
+    <div class="info">
+      <h1>{{ country.name.common }}</h1>
+      <p>
+        Population: <span>{{ country.population }}</span>
+      </p>
+      <p>
+        Region: <span>{{ country.region }}</span>
+      </p>
+      <p>
+        Capital:
+        <span>{{
+          country.capital ? country.capital.join(",") : country.capital
+        }}</span>
+      </p>
+    </div>
+  </div>
+</a>

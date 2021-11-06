@@ -1,0 +1,16 @@
+%common {
+  @apply rounded-md focus:outline-none hover:outline-none border border-transparent shadow-md text-sm ease-linear transition-all duration-150;
+}
+
+.filter {
+  @extend %common;
+  @apply flex justify-between w-44 py-3 pl-5;
+}
+
+.dropdown {
+  @extend %common;
+  @apply w-44 px-4 py-4 z-50;
+  li {
+    @apply mb-2 cursor-pointer hover:opacity-75 text-left;
+  }
+}

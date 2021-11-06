@@ -1,0 +1,6 @@
+.search {
+  input {
+    @apply rounded-md focus:outline-none border border-transparent shadow-md text-sm;
+    @apply w-full sm:w-96 py-3 pl-16 mb-10 sm:mb-0;
+  }
+}

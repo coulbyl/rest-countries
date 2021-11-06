@@ -1,0 +1,39 @@
+<div class="relative">
+  <button
+    class="
+      filter
+      bg-white
+      active:bg-gray-100
+      dark:active:bg-opacity-50 dark:bg-headerdark
+      text-gray-800
+      dark:text-white
+    "
+    (click)="onToggleDropdown()"
+  >
+    <span>{{ selectedRegion ? selectedRegion : "Filter by Region" }}</span>
+    <span
+      [innerHtml]="
+        isOpenDropdown ? (upIcon | htmlSanitizer) : (downIcon | htmlSanitizer)
+      "
+    ></span>
+  </button>
+  <div
+    *ngIf="isOpenDropdown"
+    class="
+      dropdown
+      absolute
+      left-0
+      bg-white
+      dark:bg-headerdark
+      text-gray-800
+      dark:text-white
+    "
+    style="top: 3rem"
+  >
+    <ul>
+      <li *ngFor="let region of regions" (click)="onSelect(region)">
+        {{ region }}
+      </li>
+    </ul>
+  </div>
+</div>

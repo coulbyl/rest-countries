@@ -1,0 +1,107 @@
+<div>
+  <button
+    (click)="onGoBack()"
+    class="
+      btn
+      bg-white
+      dark:bg-headerdark dark:text-white dark:active:opacity-75
+      active:bg-gray-100
+      rounded-lg
+      px-4
+      py-2
+      w-28
+    "
+  >
+    <i class="las la-arrow-left"></i> Back
+  </button>
+  <div
+    class="text-center mt-20 font-thin text-xl dark:text-white"
+    *ngIf="!isFetching && !country"
+  >
+    Sorry! The country you are looking for was not found! Or you are offline.
+  </div>
+  <div
+    @fadeAnimation
+    class="grid grid-cols-1 sm:grid-cols-3 mt-10 sm:mt-24"
+    *ngIf="country && !isFetching"
+  >
+    <div>
+      <img [src]="country.flags.svg" class="sm:transform sm:scale-105" />
+    </div>
+    <div
+      class="
+        sm:col-span-2 sm:px-10
+        py-10
+        sm:py-0 sm:transform sm:scale-90 sm:ml-20
+        dark:text-white
+      "
+    >
+      <h1 class="font-bold mb-5" style="font-size: 1.7rem">
+        {{ country.name.common }}
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 text-sm">
+        <div class="left-desc">
+          <p>
+            <span class="font-medium">Native Name:</span>
+            <span class="font-thin ml-1">{{ country.altSpellings[1] }}</span>
+          </p>
+          <p>
+            <span class="font-medium">Population:</span>
+            <span class="font-thin ml-1">{{ country.population }}</span>
+          </p>
+          <p>
+            <span class="font-medium">Region:</span>
+            <span class="font-thin ml-1">{{ country.region }}</span>
+          </p>
+          <p>
+            <span class="font-medium">Sub Region:</span>
+            <span class="font-thin ml-1">{{ country.subregion }}</span>
+          </p>
+          <p>
+            <span class="font-medium">Capital:</span>
+            <span class="font-thin ml-1">{{ country.capital.join(",") }}</span>
+          </p>
+        </div>
+        <div class="right-desc mt-10 sm:mt-0">
+          <p>
+            <span class="font-medium">Top Level Domain:</span>
+            <span class="font-thin ml-1"
+              >.{{ country.altSpellings[0].toLowerCase() }}</span
+            >
+          </p>
+          <p>
+            <span class="font-medium">Currencies:</span>
+            <span class="font-thin ml-1">{{
+              country.currenciesA.join(", ")
+            }}</span>
+          </p>
+          <p>
+            <span class="font-medium">Languages:</span>
+            <span class="font-thin ml-1">{{
+              country.languagesA.join(", ")
+            }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-10 sm:mt-16 sm:flex">
+        <div class="mr-5 mb-5 sm:mb-0">Border Countries:</div>
+        <div class="flex flex-wrap">
+          <span
+            *ngFor="let border of country.borders"
+            class="
+              bc-light
+              border
+              dark:border-0
+              border-gray-400
+              dark:border-transparent dark:bg-headerdark
+            "
+            >{{ border }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-20" *ngIf="isFetching">
+    <app-spinner></app-spinner>
+  </div>
+</div>

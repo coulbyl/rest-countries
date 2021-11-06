@@ -1,0 +1,11 @@
+.Container {
+  @apply flex items-center justify-center mt-8;
+}
+
+.Action {
+  @apply font-bold uppercase text-xs px-4 py-2 m-1 rounded-l outline-none focus:outline-none ease-linear transition-all duration-150 disabled:cursor-not-allowed;
+}
+
+.active {
+  @apply bg-headerdark text-white  #{'!important'};
+}

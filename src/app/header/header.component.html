@@ -1,0 +1,46 @@
+<nav
+  class="
+    fixed
+    top-0
+    z-50
+    w-full
+    bg-white
+    shadow
+    dark:bg-headerdark dark:text-white
+    mb-5
+  "
+>
+  <div class="top-bar"></div>
+  <div class="Content">
+    <div class="flex items-center justify-between">
+      <div>
+        <a
+          class="text-lg font-bold dark:text-white text-gray-800 cursor-pointer"
+          routerLink="/"
+          >Where in the world?</a
+        >
+      </div>
+    </div>
+    <div class="items-center sm:flex">
+      <div>
+        <a class="flex text-sm cursor-pointer" (click)="onSwitchMode()"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-5 mr-1"
+            fill="white"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+          Dark Mode</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

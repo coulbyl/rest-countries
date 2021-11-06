@@ -1,0 +1,29 @@
+<div class="sm:flex sm:justify-between" style="max-width: 74.2rem">
+  <app-search [p]="paginationApi"></app-search>
+  <app-filter [p]="paginationApi"></app-filter>
+</div>
+
+<div
+  class="text-center mt-20 font-thin text-xl dark:text-white"
+  *ngIf="!isFetching && countryNotFound"
+>
+  Sorry! The country you are looking for was not found! Or you are offline.
+</div>
+
+<div class="text-center mt-20" *ngIf="isFetching">
+  <app-spinner></app-spinner>
+</div>
+<div
+  [@listAnimation]="countries.length"
+  *ngIf="!isFetching || countryNotFound"
+  class="content"
+>
+  <app-country-preview
+    *ngFor="let country of countries | paginate: config"
+    [country]="country"
+  ></app-country-preview>
+</div>
+<app-pagination
+  [config]="config"
+  (onGetPaginationApi)="setPaginationApi($event)"
+></app-pagination>

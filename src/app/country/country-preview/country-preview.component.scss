@@ -1,0 +1,22 @@
+.country-card {
+  @apply rounded-md focus:outline-none border border-transparent shadow-md text-sm mb-10 mx-auto sm:mx-0 ease-linear transition-all duration-150;
+  height: 18rem;
+  width: 15rem;
+
+  img {
+    @apply rounded-t-md;
+  }
+
+  .info {
+    @apply px-4 py-4;
+    h1 {
+      @apply text-base font-bold mb-4;
+    }
+    p {
+      @apply mb-1;
+      span {
+        @apply opacity-80;
+      }
+    }
+  }
+}
