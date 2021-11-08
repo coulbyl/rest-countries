@@ -42,7 +42,7 @@ export class CountryService {
   fetchCountryDetails(name: string) {
     this.isFetching.next(true);
     this.http
-      .get<CountryResponse[]>(this.nameUrL + name)
+      .get<CountryResponse[]>(this.nameUrL + name + this.fullNameQuery)
       .pipe(
         take(1),
         map((res) => {
