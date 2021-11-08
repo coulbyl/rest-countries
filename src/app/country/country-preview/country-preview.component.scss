@@ -3,6 +3,10 @@
   height: 18rem;
   width: 15rem;
 
+  &:hover {
+    transform: scale(1.1);
+  }
+
   img {
     @apply rounded-t-md;
   }
