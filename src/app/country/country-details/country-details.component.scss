@@ -5,3 +5,10 @@
 .bc-light {
   @apply px-3 py-1 rounded-sm mr-1 mb-2 text-sm font-thin shadow-sm;
 }
+
+.left-desc,
+.right-desc {
+  p {
+    @apply mb-2;
+  }
+}

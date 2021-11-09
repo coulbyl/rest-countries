@@ -3,7 +3,7 @@
 }
 
 .filter {
-  @extend %common;
+  @apply rounded-md focus:outline-none hover:outline-none border border-transparent shadow-md text-sm;
   @apply flex justify-between w-44 py-3 pl-5;
 }
 
